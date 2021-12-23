@@ -1,7 +1,4 @@
-import pandas as pd
-import numpy as np
-from sklearn.feature_extraction import DictVectorizer
-from sklearn.preprocessing import StandardScaler
+from library import *
 
 """
 ================================================================================================================================
@@ -62,3 +59,7 @@ y = df_norm['stroke']
 
 X_big_array = X.copy()
 X_big_array, v = norm_X(X_big_array)
+
+
+oversample = SMOTE()
+X_res, y_res = oversample.fit_resample(X_big_array, y.array)
