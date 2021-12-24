@@ -23,4 +23,5 @@ from sklearn.model_selection import cross_val_score
 from mlxtend.feature_selection import SequentialFeatureSelector as SFS
 from sklearn.metrics import log_loss
 from mlxtend.plotting import plot_sequential_feature_selection as plot_sfs
+from sklearn.neighbors import KNeighborsClassifier
 plt.rcParams['axes.facecolor'] = 'lightgray'
