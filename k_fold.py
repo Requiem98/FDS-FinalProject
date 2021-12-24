@@ -6,21 +6,13 @@ from dataset_creation import *
 # evaluate the model using a given test condition
 def evaluate_model(cv, X, y, model):
     
-	# get the model
-    
-    if(model == "logistic"):
-        model = LogisticRegression(solver="newton-cg")
-    elif(model == "kneighbours"):
-        pass
-    else:
-        raise(KeyError("Model not specifiedS"))
-    
     # evaluate the model
     scores = cross_val_score(model, X, y, scoring='accuracy', cv=cv, n_jobs=-1)
     # return scores
     return mean(scores), scores.min(), scores.max()
 
-def k_fold_choose(X, y, model = "logistic"):
+def k_fold_choose(X, y):
+    model = LogisticRegression(solver="newton-cg")
     # calculate the ideal test condition
     ideal, _, _ = evaluate_model(LeaveOneOut(), X_res, y_res, model)
 

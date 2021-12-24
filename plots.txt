@@ -1,0 +1,46 @@
+fig, ax = plt.subplots(figsize=(10, 20))
+
+
+
+ax.pie(dataset[["hypertension", "stroke", "id"]][dataset.stroke == 1].groupby("hypertension").count()["id"], labels = ["No", "Yes"], 
+       colors=["k","gold"], autopct='%1.1f%%', textprops={'size': 30, "color": "w"}, labeldistance=None, wedgeprops={'linewidth': 3.0, 'edgecolor': 'white'});
+ax.set_title("Percentage of stroke with hypertension", fontsize=50);
+
+
+ax.legend(fontsize = 25)
+fig.savefig("immages/hypertension_pie.png", bbox_inches='tight', transparent = True)
+
+
+
+fig, ax = plt.subplots(figsize=(10, 20))
+
+ax.pie(dataset.groupby("stroke").count()["id"], labels = ["No stroke", "Stroke"], 
+       colors=["k","gold"], autopct='%1.1f%%', textprops={'size': 30, "color": "w"}, labeldistance=None, wedgeprops={'linewidth': 3.0, 'edgecolor': 'white'});
+ax.set_title("Percentage of stokes", fontsize=50);
+ax.legend(fontsize = 25)
+fig.savefig("immages/stroke_pie.png", bbox_inches='tight', transparent = True)
+
+fig, ax = plt.subplots(figsize=(20,10))
+
+stroke1 = dataset[dataset['stroke'] == 1].head(249).copy()
+stroke0 = dataset[dataset['stroke'] == 0].head(200).copy()
+strokee = pd.concat([stroke1, stroke0])
+
+sns.scatterplot(x = strokee.age, y = strokee.bmi, size=strokee.avg_glucose_level, sizes=(1,400), hue = strokee.stroke, palette = ["y", "k"], ax=ax)
+
+
+plt.xlabel('age', size = 50)
+plt.ylabel('bmi', size = 50);
+plt.xticks(size = 25)
+plt.yticks(size = 25)
+plt.legend(fontsize=15, facecolor = "w")
+plt.grid(color = "w")
+
+fig.savefig("immages/scatter.png", bbox_inches='tight')
+
+plt.figure(figsize=(30,10))
+sns.heatmap(dataset[dataset.columns[1:]].corr(), cmap= "copper", annot=True);
+
+dataset[dataset.columns[1:]].corr()
+
+sns.pairplot(dataset[dataset.columns[1:]], hue="stroke", height=5, palette=["y","k"]);
