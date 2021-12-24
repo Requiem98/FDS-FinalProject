@@ -13,6 +13,7 @@ X = dataframe of features
 y = dataset of target
 
 X_big_array = np.array of the features (DictVectorize applied)
+X_norm = same of X_big_array but is a dataframe
 
 X_res = array of oversampled feature
 y_res = array of oversampled target
@@ -62,6 +63,8 @@ y = df_norm['stroke']
 
 X_big_array = X.copy()
 X_big_array, v = norm_X(X_big_array)
+
+X_norm = pd.DataFrame(X_big_array, columns = v.get_feature_names_out())
 
 
 oversample = SMOTE()
