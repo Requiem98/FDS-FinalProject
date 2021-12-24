@@ -14,6 +14,9 @@ y = dataset of target
 
 X_big_array = np.array of the features (DictVectorize applied)
 
+X_res = array of oversampled feature
+y_res = array of oversampled target
+
 ================================================================================================================================
 """
 
@@ -63,3 +66,6 @@ X_big_array, v = norm_X(X_big_array)
 
 oversample = SMOTE()
 X_res, y_res = oversample.fit_resample(X_big_array, y.array)
+
+
+X_res_train, X_res_test, y_res_train, y_res_test = train_test_split(X_res, y_res, test_size=0.33, random_state=123)

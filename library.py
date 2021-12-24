@@ -17,10 +17,8 @@ from sklearn.metrics import accuracy_score
 from imblearn.over_sampling import SMOTE
 from numpy import mean
 from sklearn.datasets import make_classification
-from sklearn.model_selection import LeaveOneOut
-from sklearn.model_selection import StratifiedKFold
-from sklearn.model_selection import cross_val_score
-from mlxtend.feature_selection import SequentialFeatureSelector as SFS
+from sklearn.model_selection import *
+from sklearn.feature_selection import SequentialFeatureSelector as sfs
 from sklearn.metrics import log_loss
 from mlxtend.plotting import plot_sequential_feature_selection as plot_sfs
 from sklearn.neighbors import KNeighborsClassifier
