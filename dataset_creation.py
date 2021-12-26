@@ -18,6 +18,8 @@ X_norm = same of X_big_array but is a dataframe
 X_res = array of oversampled feature
 y_res = array of oversampled target
 
+X_res_train, X_res_test, y_res_train, y_res_test = Split of the dataset in train and test
+
 ================================================================================================================================
 """
 
@@ -71,4 +73,4 @@ oversample = SMOTE()
 X_res, y_res = oversample.fit_resample(X_big_array, y.array)
 
 
-X_res_train, X_res_test, y_res_train, y_res_test = train_test_split(X_res, y_res, test_size=0.33, random_state=123)
+#X_train, X_test, y_train, y_test = train_test_split(X_big_array, y.array, test_size=0.33, random_state=123)

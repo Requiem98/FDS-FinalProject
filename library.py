@@ -15,3 +15,4 @@ from sklearn.neighbors import KNeighborsClassifier
 from mlxtend.feature_selection import SequentialFeatureSelector as SFS
 #from sklearn.feature_selection import SequentialFeatureSelector as sfs
 from mlxtend.plotting import plot_sequential_feature_selection as plot_sfs
+from matplotlib.legend_handler import HandlerLine2D
